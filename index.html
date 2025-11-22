@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="eBird 最新鳥類名錄查詢工具，支援繁體中文、英文、日文等 12 種語言的鳥類俗名、學名查詢。提供 eBird 代碼、banding codes等資訊。">
+    <title>eBird 最新鳥類名錄查詢</title>
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z'/><line x1='16' y1='8' x2='2' y2='22'/><line x1='17.5' y1='15' x2='9' y2='15'/></svg>"
+        type="image/svg+xml">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="site-title" onclick="location.reload()">
+                <svg class="feather-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                    <line x1="16" y1="8" x2="2" y2="22" />
+                    <line x1="17.5" y1="15" x2="9" y2="15" />
+                </svg>
+                <span>eBird 最新鳥類名錄查詢</span>
+            </h1>
+            <p class="intro-text">使用鳥類俗名、學名、eBird 代碼進行查詢</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-container">
+                <div class="search-input-container">
+                    <input type="text" id="searchInput" class="search-input"
+                        placeholder="Enter bird name, scientific name, or alternative name..." autocomplete="off">
+                    <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+                </div>
+                <select id="languageSelector" class="language-selector">
+                    <option value="comNameZh">繁體中文</option>
+                    <option value="comName">English</option>
+                    <option value="comNameJp">日本語</option>
+                    <option value="comNameDe">Deutsch</option>
+                    <option value="comNameFr">Français</option>
+                    <option value="comNameIt">Italiano</option>
+                    <option value="comNameMn">Монгол</option>
+                    <option value="comNameRu">Русский</option>
+                    <option value="comNameEsES">Español (España)</option>
+                    <option value="comNameEsLA">Español (Latinoamérica)</option>
+                    <option value="comNamePtPT">Português (Portugal)</option>
+                    <option value="comNamePtBR">Português (Brasil)</option>
+                </select>
+                <button id="searchButton" class="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <p class="search-syntax-hint">Pro-tip: Use <code>code:</code> for specific searches (e.g.,
+                <code>code: URCA)</code>.
+            </p>
+            <div class="stats">
+                <span id="resultCount"></span>
+                <span id="loadTime"></span>
+            </div>
+        </div>
+
+        <div id="loadingIndicator" class="loading" style="display: none;">
+            Loading species data...
+        </div>
+
+        <div id="errorMessage" class="error" style="display: none;"></div>
+
+        <div class="main-content">
+
+            <div id="resultsContainer" class="results-container" style="display: none;">
+            </div>
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>No bird species found matching your search.</p>
+            <p>Try different keywords or check your spelling.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <footer>
+        © 2025 Bîn-hiân · <a href="https://portaly.cc/siansiansu/support" target="_blank" rel="noopener noreferrer">贊助支持
+            ❤️</a>
+    </footer>
+</body>
+
+</html>
