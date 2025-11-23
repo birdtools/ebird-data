@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /*.json$
+Disallow: /*.py$
+
+Sitemap: https://ebird.siansiansu.com/sitemap.xml
